@@ -1,0 +1,48 @@
+Ryan Ellis
+COSC 220-003
+Lab #7
+"D and Q Sequences"- Output and Observations
+
+Main Program:
+#include <iostream>
+using namespace std;
+
+long D(long);
+long Q(long);
+
+int main(){
+
+     int input;
+     cout<< "---D and Q Sequences---"<<endl;
+    cout<< "Input n: ";
+    cin>>input;
+    
+    cout<<"Q Numbers: ";
+    for (int i = 0; i < input; i++)
+       cout<< Q(i) << " ";
+    cout<<"D Numbers: ";
+    for (int i = 0; i < input; i++)
+        cout<< D(i)<< " ";
+     return 0;
+}
+
+long D(long n){
+    return D(D(n-1)) + D(n - 1 - D(n - 2));
+    
+} 
+
+long Q(long n){
+    return Q(n - Q(n - 1)) + Q(n - Q(n - 2));
+    
+}
+
+Output:
+re79380@hpcl1-2:~/Documents/COSC220/Lab7$ ./prog 
+---D and Q Sequences---
+Input n: 25
+Segmentation fault
+
+
+Observations:
+This code immediately runs into a segmentation fault with not any evidence that there was any calculation done whatsoever. Stack overflow issue, need to add stop conditions.
+
