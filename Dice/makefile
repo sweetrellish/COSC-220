@@ -1,0 +1,22 @@
+#Created by Ryan Ellis 9/24/2024
+
+PROG = prog
+CC = g++
+CPPFLAGS = -g -Wall -std=c++11
+OBJS = main.o Array2D.o Die.o
+
+$(PROG) : $(OBJS)
+	$(CC) -o $(PROG) $(OBJS)
+
+main.o : main.cpp 
+	$(CC) $(CPPFLAGS) -c main.cpp
+Array.o : Array2D.h Array2D.cpp
+	$(CC) $(CPPFLAGS) -c Array2D.cpp
+Dio. o : Die.h Die.cpp
+	$(CC) $(CPPFLAGS) -c Die.cpp
+clean:
+	rm -f core $(PROG) $(OBJS)
+
+rebuild:
+	make clean
+	make
