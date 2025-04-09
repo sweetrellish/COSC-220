@@ -1,0 +1,7 @@
+Order:
+
+Factorial
+Fibonacci
+Hanoi
+Maze
+EightQueens
